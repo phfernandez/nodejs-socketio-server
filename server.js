@@ -12,17 +12,29 @@ const https = require('https');
 //const privateKey = fs.readFileSync(process.env.PRIVATE_KEY, 'utf8')
 //const certificate = fs.readFileSync(process.env.CERTIFICATE, 'utf8')
 
-/*
-const privateKey = fs.readFileSync('./file.pem', 'utf8')
-const certificate = fs.readFileSync('./file.crt', 'utf8')
+
+//const privateKey = fs.readFileSync('./file.pem', 'utf8')
+//const certificate = fs.readFileSync('./file.crt', 'utf8')
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/617e4378-1ef6-4246-a171-6a3483f84f4d.clouding.host/privkey.pem', 'utf8')
+const certificate = fs.readFileSync('/etc/letsencrypt/live/617e4378-1ef6-4246-a171-6a3483f84f4d.clouding.host/cert.pem', 'utf8')
+const ca = fs.readFileSync('/etc/letsencrypt/live/617e4378-1ef6-4246-a171-6a3483f84f4d.clouding.host/chain.pem', 'utf8')
 const credentials = {
     key: privateKey, 
-    cert: certificate, 
-    passphrase: process.env.PASSPHRASE
+    cert: certificate,
+    ca: ca, 
+    //passphrase: process.env.PASSPHRASE
 }
+
+/*
+var options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/example.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/example.com/cert.pem'),
+  ca: fs.readFileSync('/etc/letsencrypt/live/example.com/chain.pem')
+};
 */
 
-const credentials = {}
+
+//const credentials = {}
 const server = http.createServer(credentials, app);
 //const server = https.createServer(credentials, app);
 
