@@ -35,8 +35,8 @@ var options = {
 
 
 //const credentials = {}
-const server = http.createServer(credentials, app);
-//const server = https.createServer(credentials, app);
+//const server = http.createServer(credentials, app);
+const server = https.createServer(credentials, app);
 
 
 const io = require("socket.io")(server, {
